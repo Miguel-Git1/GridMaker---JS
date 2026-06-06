@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/despite.css" rel="stylesheet">
+    <script type="module" src="Utils/utils.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>My Game</title>
+</head>
+<body>
+    <canvas id="mycanvas"></canvas>
+    <div class="grid-changer">
+        <header>Grid Expander</header>
+        <div class="config-options-container">
+        <div class="expander-container">
+                <div class="grid-control-container">
+                    <label for="grid-row-slider" class="grid-slider-label">
+                        Row Slider <output id="row-val">10</output>
+                        <input oninput="document.getElementById('row-val').textContent = this.value" 
+                        id="grid-row-slider" class="slider" type="range" value="10" min="10" max="400" step="10" autocomplete="off">
+                    </label>
+                    <label for="grid-column-slider" class="grid-slider-label">
+                        Column Slider <output id="column-val">10</output>
+                        <input oninput="document.getElementById('column-val').textContent = this.value"
+                        id="grid-column-slider" class="slider" type="range" value="10" min="10" max="400" step="10" autocomplete="off">
+                    </label>
+                    <label id="mouse-pos-label" for="grid-column-slider" class="grid-slider-label"></label>
+                </div>
+            </div>
+            <div class="stroke-color-container">
+                <input type="color" id="stroke-color" name="theme-color" value="#ff0000">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
