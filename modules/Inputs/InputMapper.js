@@ -6,8 +6,6 @@ class InputMapper {
 
     #setKeyDownTracker() {
         document.addEventListener("keydown", (e) => {
-
-            console.log(e.key);
             this.#pressedKeysMapper.set(e.key, true);
         });  
     }
