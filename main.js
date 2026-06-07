@@ -48,6 +48,9 @@ document.addEventListener('mouseup', () => {
     gameState.innerWidth = window.innerWidth;
     gameState.innerHeight = window.innerHeight;
 
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
     context.reset();
 
     context.fillStyle = gameState.themeColor;
