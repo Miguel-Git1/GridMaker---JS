@@ -15,7 +15,7 @@ const colorPicker = document.getElementById("stroke-color")
 
 const squareDims = [100, 100];
 
-let grid = new Grid(200, 200);
+let grid = new Grid();
 
 console.log(colorPicker);
 
