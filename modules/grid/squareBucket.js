@@ -6,15 +6,15 @@ export class SquareBucket {
         return this.#table[Symbol.iterator]();
     }
 
-    #getSquareRefType(x, y, width, height) {
-        const squareReference = this.#getSquareReferenceType(x, y, width, height);
+    #getSquareRefType(x, y, width, height, color) {
+        const squareReference = this.#getSquareReferenceType(x, y, width, height, color);
 
         const uniqueID = `${squareReference.posX},${squareReference.posY},${squareReference.width},${squareReference.height}`;
 
         return { uniqueID, squareReference };
     }
 
-    #getSquareReferenceType(x, y, width, height) {
+    #getSquareReferenceType(x, y, width, height, color) {
         /**
          * @type {import('../../types').SquareReference}
          */
@@ -22,7 +22,8 @@ export class SquareBucket {
             posX: x,
             posY: y,
             width: width,
-            height: height
+            height: height,
+            color: color
         }
     }
 
@@ -30,14 +31,14 @@ export class SquareBucket {
         this.#table.clear();
     }
 
-    storeSquareReference(x, y, width, height) {
-        const { uniqueID, squareReference } = this.#getSquareRefType(x, y, width, height);
+    storeSquareReference(x, y, width, height, color) {
+        const { uniqueID, squareReference } = this.#getSquareRefType(x, y, width, height, color);
 
         this.#table.set(uniqueID, squareReference);
     }   
 
-    getSquare(x, y, width, height) {
-        const { uniqueID, squareReference } = this.#getSquareRefType(x, y, width, height);
+    getSquare(x, y, width, height, color) {
+        const { uniqueID, squareReference } = this.#getSquareRefType(x, y, width, height, color);
 
         return this.#table.get(uniqueID);
     }

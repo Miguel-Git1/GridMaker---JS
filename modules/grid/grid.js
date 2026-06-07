@@ -65,15 +65,16 @@ class Grid {
     }
 
     paintPositionedSquare(context) {
-        
         const hoveredSquare = this.getCurrentHoveredSquare();
 
         if (gameState.isMouseDown)
         {
-            this.#squareBucket.storeSquareReference(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height);
-        }
+            this.#squareBucket.storeSquareReference(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height, gameState.themeColor);
+        } 
 
         for (const [_, square] of this.#squareBucket) {
+            console.log(square);
+            context.fillStyle = square.color;
             context.fillRect(square.posX, square.posY, square.width, square.height);
         }
     }
