@@ -26,9 +26,15 @@ class GameState {
         });
     }
 
+    #upsertDims() {
+        this.innerWidth = window.innerWidth;
+        this.innerHeight = window.innerHeight;
+    }
+
     constructor() {
         this.#hookMouseTrack();
         this.#hookMouseInputs();
+        this.#upsertDims();
     }
 
 }
