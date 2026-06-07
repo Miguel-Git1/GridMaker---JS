@@ -12,8 +12,6 @@ class Grid {
     constructor(rowHeight = 10, columnWidth = 10) {
         this.#rowHeight = rowHeight;
         this.#columnWidth = columnWidth;
-
-        console.log(gameState)
     }
 
     get blueprintWidth() {
@@ -103,7 +101,6 @@ class Grid {
             context.lineTo(this.blueprintWidth, nextPos);
             context.stroke();
         }
-
     }
 }
 
