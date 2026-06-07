@@ -2,7 +2,7 @@ import { gameState } from "../../GameState.js";
 import { SquareBucket } from "../../modules/grid/squareBucket.js"
 
 
-export class Grid {
+class Grid {
 
     #columnWidth;
     #rowHeight;
@@ -41,13 +41,10 @@ export class Grid {
 
         return { totalColumns, totalRows };
     }
-    
-    getUniqueSquareID(square) {
-        const serializedSquare = `${square.x},${square.y},${square.width},${square.height}`;
-
-        return serializedSquare;
+ 
+    clearPaintedSquares() {
+        this.#squareBucket.clearPaintedSquares();
     }
-     
 
     changeGridDims(columnWidth, rowHeight) {
         this.#columnWidth = columnWidth;
@@ -109,3 +106,5 @@ export class Grid {
 
     }
 }
+
+export const grid = new Grid();
