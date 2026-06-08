@@ -1,3 +1,7 @@
+
+/**
+ * @deprecated Since the introduction of layers there isnt a clear motive for using this.
+ */
 export class SquareBucket {
 
     #table = new Map();
