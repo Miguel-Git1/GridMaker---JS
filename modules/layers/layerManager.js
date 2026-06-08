@@ -1,4 +1,4 @@
-export class LayerManager {
+class LayerManager {
     
     #layerContainer;
     #layerMapper = new Map();
@@ -33,3 +33,5 @@ export class LayerManager {
         }
     }
 }
+
+export const layerManager = new LayerManager();
