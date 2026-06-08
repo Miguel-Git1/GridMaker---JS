@@ -1,15 +1,16 @@
 import { gameState } from "../../GameState.js";
 import { SquareBucket } from "../../modules/grid/squareBucket.js"
 
-
-class Grid {
+export class Grid {
 
     #columnWidth;
     #rowHeight;
+    #currentCanvas;
     
     #squareBucket = new SquareBucket();
 
-    constructor(rowHeight = 10, columnWidth = 10) {
+    constructor(canvas, rowHeight = 10, columnWidth = 10) {
+        this.#currentCanvas = canvas;
         this.#rowHeight = rowHeight;
         this.#columnWidth = columnWidth;
     }
@@ -41,7 +42,7 @@ class Grid {
     }
  
     clearPaintedSquares() {
-        this.#squareBucket.clearPaintedSquares();
+        this.#currentCanvas.reset();
     }
 
     changeGridDims(columnWidth, rowHeight) {
@@ -64,19 +65,13 @@ class Grid {
         context.fillRect(currentSquare.x, currentSquare.y, currentSquare.width, currentSquare.height);
     }
 
-    paintPositionedSquare(context) {
+    paintPositionedSquare() {
         const hoveredSquare = this.getCurrentHoveredSquare();
 
         if (gameState.isMouseDown)
         {
-            this.#squareBucket.storeSquareReference(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height, gameState.themeColor);
+            this.#currentCanvas.fillRect(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height);
         } 
-
-        for (const [_, square] of this.#squareBucket) {
-            console.log(square);
-            context.fillStyle = square.color;
-            context.fillRect(square.posX, square.posY, square.width, square.height);
-        }
     }
 
     drawGrid(context) {
@@ -104,5 +99,3 @@ class Grid {
         }
     }
 }
-
-export const grid = new Grid();
