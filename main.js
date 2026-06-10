@@ -17,6 +17,7 @@ const hoverLayerContext = hoverLayer.getContext("2d");
 const pixelLayerContext = pixelLayer.getContext("2d");
 
 const grid = new Grid(pixelLayerContext);
+const hoverBrush = new HoverBrush(hoverLayerContext, grid);
 
 ;requestAnimationFrame(warmUp);
 
