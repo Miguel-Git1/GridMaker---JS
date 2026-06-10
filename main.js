@@ -1,7 +1,8 @@
 import { Grid } from "./modules/grid/grid.js";
 import { gameState } from "./GameState.js";
 import { inputActionManager } from "./modules/inputs/InputActionManager.js";
-import { layerManager } from "./modules/layers/layerManager.js"
+import { layerManager } from "./modules/layers/layerManager.js";
+import { HoverBrush } from "./modules/grid/hoverBrush.js";
 
 const columnSlider = document.getElementById("grid-column-slider");
 const rowSlider = document.getElementById("grid-row-slider");
