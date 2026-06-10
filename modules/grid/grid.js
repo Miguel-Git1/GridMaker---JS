@@ -7,7 +7,7 @@ export class Grid {
     #rowHeight;
     #currentCanvas;
     
-    #squareBucket = new SquareBucket();
+    //#squareBucket = new SquareBucket();
 
     constructor(canvas, rowHeight = 10, columnWidth = 10) {
         this.#currentCanvas = canvas;
