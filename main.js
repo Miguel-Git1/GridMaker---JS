@@ -50,4 +50,8 @@ const hoverBrush = new HoverBrush(hoverLayerContext, grid);
     mousePosLabel.textContent = `X: ${gameState.mousePosX} Y: ${gameState.mousePosY}`;
 
     inputActionManager.clearPaintedSquares(grid);
+
+
+
+    inputActionManager.changeHoverBrushSize(hoverBrush);    
 }

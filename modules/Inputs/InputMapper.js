@@ -21,6 +21,10 @@ class InputMapper {
         this.#setKeyReleaseTracker();
     }
 
+    get currentKeyPressed() {
+        return this.#pressedKeysMapper.entries().next().value;
+    }
+    
     isKeyPressed(key) {
         return this.#pressedKeysMapper.has(key);
     }
