@@ -37,14 +37,14 @@ const grid = new Grid(pixelLayerContext);
     grid.changeGridDims(columnSlider.valueAsNumber, rowSlider.valueAsNumber);
     
     hoverLayerContext.reset();
-
+    
     hoverLayerContext.fillStyle = gameState.themeColor;
 
-    grid.drawPositionedSquare(hoverLayerContext);
+    hoverBrush.drawHoveredSquare();
     
     pixelLayerContext.fillStyle = gameState.themeColor;
 
-    grid.paintPositionedSquare();
+    hoverBrush.paintPositionedSquare();
 
     mousePosLabel.textContent = `X: ${gameState.mousePosX} Y: ${gameState.mousePosY}`;
 

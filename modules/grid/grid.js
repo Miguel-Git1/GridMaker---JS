@@ -23,6 +23,15 @@ export class Grid {
         return gameState.innerHeight;
     }
 
+    get columnWidth() {
+        return this.#columnWidth;
+    }
+
+    get rowHeight() {
+        return this.#rowHeight;
+    }
+
+
     get area() {
         this.blueprintWidth * this.blueprintHeight;
     }
@@ -50,28 +59,8 @@ export class Grid {
         this.#rowHeight = rowHeight;
     }
 
-    getCurrentHoveredSquare() {
-        const amountSquaresPassedY = Math.floor(gameState.mousePosX / this.#columnWidth);
-        const amountSquaresPassedX = Math.floor(gameState.mousePosY / this.#rowHeight);
-
-        const posX = amountSquaresPassedY * this.#columnWidth;
-        const posY = amountSquaresPassedX * this.#rowHeight;
-
-        return { x: posX, y: posY, width: this.#columnWidth, height: this.#rowHeight };
-    }
-
-    drawPositionedSquare(context) {
-        const currentSquare = this.getCurrentHoveredSquare();
-        context.fillRect(currentSquare.x, currentSquare.y, currentSquare.width, currentSquare.height);
-    }
-
-    paintPositionedSquare() {
-        const hoveredSquare = this.getCurrentHoveredSquare();
-
-        if (gameState.isMouseDown)
-        {
-            this.#currentCanvas.fillRect(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height);
-        } 
+    drawSquare(posX, posY, width, height) {
+        this.#currentCanvas.fillRect(posX, posY, width, height);
     }
 
     drawGrid(context) {
