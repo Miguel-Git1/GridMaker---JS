@@ -28,9 +28,10 @@ const grid = new Grid(pixelLayerContext);
     grid.drawGrid(gridLayerContext);
 }
 
-;function mainGameLoop() {
+;function mainGameLoop(timestamp) {
     requestAnimationFrame(mainGameLoop);
 
+    gameState.timestamp = timestamp;
     gameState.themeColor = colorPicker.value;
 
     grid.changeGridDims(columnSlider.valueAsNumber, rowSlider.valueAsNumber);

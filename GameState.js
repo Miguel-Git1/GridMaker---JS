@@ -9,6 +9,8 @@ class GameState {
 
     themeColor;
 
+    timestamp;
+
     #hookMouseTrack() {
         document.addEventListener("mousemove", (e) => {
             this.mousePosX = e.clientX;
