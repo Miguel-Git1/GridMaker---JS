@@ -1,0 +1,33 @@
+.stroke-color-container {
+    flex: 1;
+    display: flex;
+
+    gap: 10px;
+    border-left: solid 2px black;
+
+    padding-left: 15px;
+}
+
+.color-block {
+    display: flex;
+    width: 5px;
+    height: 5px;
+    padding: 10px;
+
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    background-color: var(--block-color);
+
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    &.active {
+        transform: translateY(-8px);
+    }
+
+    transition: transform 0.3s ease;
+}

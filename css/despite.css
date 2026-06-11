@@ -74,11 +74,3 @@ canvas {
         }
     }
 }
-
-.stroke-color-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-left: solid 2px black;
-}
