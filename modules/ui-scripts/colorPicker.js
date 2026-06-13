@@ -35,14 +35,46 @@ export class ColorPicker {
         return this.#colorContainer.querySelectorAll(".color-block");
     }
 
+    async makeAnimationSquares() {
+        this.clearAllActives();
+
+        const allOrderesSquares = this.allColorSquares;
+
+        let middleNumber = Math.floor(allOrderesSquares.length / 2);
         
-        colors.forEach((color, i) => {
-            const colorDiv = document.createElement("div");
-            colorDiv.dataset.index = i;
-            colorDiv.classList.add("color-block");
+        let leftIndex = middleNumber;
+        let rightIndex = middleNumber;
+
+        let scalar = 1;
+        let step = 0;
+
+        const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        for (let i = 0; i < allOrderesSquares.length; i++)
         {
+            const leftSquare = this.#colorMap.get(leftIndex);
+            const rightSqure = this.#colorMap.get(rightIndex);
+
             
-            colorDiv.style.setProperty('--block-color', color);
+            leftSquare.classList.toggle("active");
+            rightSqure.classList.toggle("active");
+            
+            leftIndex = middleNumber - scalar;
+            rightIndex = middleNumber + scalar;
+
+            step = (step %   2) + 1;
+
+            if (step == 2)
+            {
+                scalar++;
+            }
+
+            await sleep(250);
+
+            leftSquare.classList.toggle("active");
+            rightSqure.classList.toggle("active");
+        }
+    }
 
     clearAllActives() {
         this.allColorSquares.forEach(c => c.classList.remove("active"));
