@@ -1,4 +1,5 @@
 import { inputMapper } from "../inputs/InputMapper.js";
+import { gameState } from "../../GameState.js";
 
 export class ColorPicker {
     
