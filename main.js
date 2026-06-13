@@ -20,7 +20,7 @@ const pixelLayerContext = pixelLayer.getContext("2d");
 const grid = new Grid(pixelLayerContext);
 const hoverBrush = new HoverBrush(hoverLayerContext, grid);
 
-const colorPicker = new ColorPicker();
+const colorPicker = new ColorPicker(hoverLayerContext);
 
 ;requestAnimationFrame(warmUp);
 
@@ -30,30 +30,36 @@ const colorPicker = new ColorPicker();
     layerManager.upsertAllCanvasSize();
     
     grid.drawGrid(gridLayerContext);
+
+    colorPicker.setColor();
     colorPicker.buildColors();
+    colorPicker.setColorSquareEvents();
+
+    colorPicker.makeAnimationSquares();
 }
 
 ;function mainGameLoop(timestamp) {
     requestAnimationFrame(mainGameLoop);
 
     gameState.timestamp = timestamp;
-    gameState.themeColor = colorPicker.value;
 
     grid.changeGridDims(columnSlider.valueAsNumber, rowSlider.valueAsNumber);
     
     hoverLayerContext.reset();
     
+    pixelLayerContext.fillStyle = gameState.themeColor;
+    
     hoverLayerContext.fillStyle = gameState.themeColor;
 
     hoverBrush.drawHoveredSquare();
     
-    pixelLayerContext.fillStyle = gameState.themeColor;
-
     hoverBrush.paintPositionedSquare();
-
+    
     mousePosLabel.textContent = `X: ${gameState.mousePosX} Y: ${gameState.mousePosY}`;
-
+    
     inputActionManager.clearPaintedSquares(grid);
-
+    
     inputActionManager.changeHoverBrushSize(hoverBrush);    
+    
+    colorPicker.switchColorAction();
 }
