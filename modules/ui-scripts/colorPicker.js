@@ -23,8 +23,18 @@ export class ColorPicker {
         this.#colorContainer = document.querySelector(".stroke-color-container");
     }
 
-    buildColors() {
-        const colors = ["#FF0000", "#008000", "#ADD8E6", "#FFFF00", "#FF00FF"];
+    get activeColor() {
+        return this.#allColors[this.#currentColor];
+    }
+
+    get isOnCooldown() {
+        return gameState.timestamp - this.#currentTimeStamp < 100;
+    }
+
+    get allColorSquares() {
+        return this.#colorContainer.querySelectorAll(".color-block");
+    }
+
         
         colors.forEach((color, i) => {
             const colorDiv = document.createElement("div");
