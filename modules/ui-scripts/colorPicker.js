@@ -43,6 +43,11 @@ export class ColorPicker {
         {
             
             colorDiv.style.setProperty('--block-color', color);
+
+    clearAllActives() {
+        this.allColorSquares.forEach(c => c.classList.remove("active"));
+    }
+
     setColorSquareEvents() {
         this.allColorSquares.forEach(c => c.addEventListener("click", () => {
             this.changeColor(+c.dataset.index);
