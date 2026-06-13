@@ -2,10 +2,12 @@
     flex: 1;
     display: flex;
 
+    justify-content: center;  
+    flex-wrap: wrap;  
+
+    width: 200px;
     gap: 10px;
     border-left: solid 2px black;
-
-    padding-left: 15px;
 }
 
 .color-block {
