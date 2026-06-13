@@ -73,10 +73,10 @@ export class HoverBrush {
     }
 
     paintPositionedSquare() {
-        const currentSquares = this.getCurrentHoveredSquare();
-
         if (gameState.isMouseDown)
         {
+            const currentSquares = this.getCurrentHoveredSquare();
+
             for (const hoveredSquare of currentSquares) {
                 this.#currentGrid.drawSquare(hoveredSquare.x, hoveredSquare.y, hoveredSquare.width, hoveredSquare.height);
             }
