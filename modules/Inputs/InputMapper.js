@@ -17,9 +17,7 @@ class InputMapper {
     }
 
     #setKeyReleaseTracker() {
-        document.addEventListener("keyup", (e) => {
-            this.#pressedKeysMapper.delete(e.key);
-        });
+        document.addEventListener("keyup", (e) => this.#pressedKeysMapper.delete(e.key));
     }
 
     constructor() {
