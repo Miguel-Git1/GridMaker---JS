@@ -29,10 +29,9 @@ class InputMapper {
         return this.#pressedKeysMapper.entries().next().value;
     }
     
-    isKeyPressed(key) {
-        return this.#pressedKeysMapper.has(key);
+    isKeyPressed(...keys) {
+        return keys.every(key => this.#pressedKeysMapper.has(key));
     }
-
 }
 
 export const inputMapper = new InputMapper();
