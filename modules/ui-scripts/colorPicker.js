@@ -2,8 +2,21 @@ import { inputMapper } from "../inputs/InputMapper.js";
 
 export class ColorPicker {
     
+    #currentColor = 0;
+
+    #currentTimeStamp = 0;
+
     #colorContainer;
-    #currentColor;
+
+    #colorMap = new Map();
+
+    #allColors = [
+        "#FF0000", "#00FF00", "#0000FF", "#FFFFFF", "#000000",
+        "#FF007F", "#7B2CBF", "#00F5D4", "#FFB703", "#FB8500", 
+        "#4EA8DE", "#70E000", "#FF0055", "#3300FF", "#B5EAD7", 
+        "#1F2833", "#E98074", "#264653", "#FFC6FF", "#45A29E",
+        "#00F5D4"
+    ];
 
     constructor() {
         this.#colorContainer = document.querySelector(".stroke-color-container");
