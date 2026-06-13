@@ -24,11 +24,11 @@ export class HoverBrush {
     }
 
     decrementWidth() {
-        this.#extraWidth = Math.max(0, this.#extraWidth - 1);
+        this.#extraWidth = Math.max(1, this.#extraWidth - 1);
     }
 
     decrementHeight() {
-        this.#extraHeight = Math.max(0, this.#extraHeight - 1);
+        this.#extraHeight = Math.max(1, this.#extraHeight - 1);
     }
 
 
@@ -49,14 +49,14 @@ export class HoverBrush {
 
         yield { x: posX, y: posY, width: this.#currentGrid.columnWidth, height: this.#currentGrid.rowHeight } // Center square
         
-        for (let i = 0; i < this.#extraWidth; i++) {
+        for (let i = 1; i < this.#extraWidth; i++) {
             const amountExtraSquareX = i * this.#currentGrid.columnWidth;
 
             yield { x: posX - amountExtraSquareX, y: posY, width: this.#currentGrid.columnWidth, height: this.#currentGrid.rowHeight };
             yield { x: posX + amountExtraSquareX, y: posY, width: this.#currentGrid.columnWidth, height: this.#currentGrid.rowHeight };
         }
 
-        for (let j = 0; j < this.#extraHeight; j++) {
+        for (let j = 1; j < this.#extraHeight; j++) {
             const amountExtraSquareY = j * this.#currentGrid.rowHeight;
 
             yield { x: posX, y: posY - amountExtraSquareY, width: this.#currentGrid.columnWidth, height: this.#currentGrid.rowHeight };
