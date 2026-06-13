@@ -30,11 +30,32 @@ export class ColorPicker {
             const colorDiv = document.createElement("div");
             colorDiv.dataset.index = i;
             colorDiv.classList.add("color-block");
+        {
             
             colorDiv.style.setProperty('--block-color', color);
 
-            this.#colorContainer.appendChild(colorDiv);
-        });
+    createColorSquare(colorCode, index) {
+        const colorDiv = document.createElement("div");
+        colorDiv.classList.add("color-block");
+        
+        colorDiv.style.setProperty("--block-color", colorCode);
+
+        colorDiv.dataset.index = index;
+
+        colorDiv.classList.toggle("active", index === this.#currentColor);
+
+
+        this.#colorMap.set(index, colorDiv);
+
+        this.#colorContainer.appendChild(colorDiv);
+    }
+    
+    setColor() {
+        gameState.themeColor = this.activeColor;
+    }
+
+    buildColors() {   
+        this.#allColors.forEach((color, i) => this.createColorSquare(color, i));
     }
 
     switchColorAction() {
