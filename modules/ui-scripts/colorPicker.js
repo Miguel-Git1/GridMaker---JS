@@ -43,6 +43,12 @@ export class ColorPicker {
         {
             
             colorDiv.style.setProperty('--block-color', color);
+    changeColor(index) {
+        this.allColorSquares.forEach(c => c.classList.toggle("active", index === +c.dataset.index));
+
+        this.#currentColor = index;
+        gameState.themeColor = this.activeColor;
+    }
 
     createColorSquare(colorCode, index) {
         const colorDiv = document.createElement("div");
