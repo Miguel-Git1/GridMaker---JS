@@ -2,7 +2,7 @@
 // For some reason mozilla is saying not to use e.keyCode and use e.key
 class InputMapper {
 
-    #pressedKeysMapper = new Map();
+    #pressedKeysMapper = new Set();
 
     #setKeyDownTracker() {
         document.addEventListener("keydown", (e) => {
