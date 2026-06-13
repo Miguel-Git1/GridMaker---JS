@@ -15,5 +15,6 @@ This project was originally meant to be a game fully made with the Canvas API. N
 
 Since everything is made from "scratch" using the Canvas API, all concepts I implement need to be tied with math behind it.
 
-## Lessons
-As I develop this project, I am starting to see a contrast between on how we use modules in JS for making these types of respective projects. The contrast begins on the decision between declaring a single variable that holds the class instance, or just creating the class. Its almost like choosing between a singleton, or a reusable class. Architectural decisions like this are important.
+I have been learning a lot of math with this, and the more I progress the more I enjoy both programming and math!
+
+Feel free to contribute to the playground!
