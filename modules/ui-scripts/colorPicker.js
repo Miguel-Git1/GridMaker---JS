@@ -24,9 +24,32 @@ export class ColorPicker {
     }
 
     switchColorAction() {
-        if (inputMapper.isKeyPressed("tab"))
+        const targetKeysArePressed = inputMapper.isKeyPressed("Shift", "Tab") || inputMapper.isKeyPressed("Tab");
+
+        if (targetKeysArePressed && !this.isOnCooldown)
         {
-            this.#currentColor
+            this.#currentTimeStamp = gameState.timestamp;
+
+            const limit = this.#allColors.length; 
+
+            const index = this.#currentColor;
+
+            let nextColorIndex;
+            if (inputMapper.isKeyPressed("Shift", "Tab"))
+            {
+                const calculatedColorIndex = Math.max(0, (index - 1)) % limit; 
+                nextColorIndex = calculatedColorIndex === 0 ? limit - 1 : calculatedColorIndex;
+            }
+            else 
+            {
+                nextColorIndex = (this.#currentColor + 1) % limit; 
+            }
+
+            this.#currentColor = nextColorIndex;
+
+            this.changeColor(nextColorIndex);
+            
+            gameState.themeColor = this.activeColor;
         }
     }
 }
