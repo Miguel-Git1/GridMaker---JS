@@ -6,7 +6,13 @@ class InputMapper {
 
     #setKeyDownTracker() {
         document.addEventListener("keydown", (e) => {
-            this.#pressedKeysMapper.set(e.key, true);
+
+            if (e.key === "Tab")
+            {
+                e.preventDefault();
+            }
+            
+            this.#pressedKeysMapper.add(e.key);
         });  
     }
 
