@@ -19,13 +19,9 @@ class GameState {
     }
 
     #hookMouseInputs() {
-        document.addEventListener("mousedown", () => {
-            this.isMouseDown = true;
-        });
+        document.addEventListener("mousedown", () => this.isMouseDown = true);
 
-        document.addEventListener("mouseup", () => {
-            this.isMouseDown = false;
-        });
+        document.addEventListener("mouseup", () => this.isMouseDown = false);
     }
 
     #upsertDims() {
