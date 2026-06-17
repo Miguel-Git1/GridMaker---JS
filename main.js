@@ -8,8 +8,8 @@ import { ColorPicker } from "./modules/ui-scripts/colorPicker.js";
 const mousePosLabel = document.getElementById("mouse-pos-label");
 
 const gridLayer = layerManager.createLayer("grid-layer");
-const hoverLayer = layerManager.createLayer("hover-layer");
 const pixelLayer = layerManager.createLayer("pixel-layer");
+const hoverLayer = layerManager.createLayer("hover-layer");
 
 const gridLayerContext = gridLayer.getContext("2d");
 const hoverLayerContext = hoverLayer.getContext("2d");
