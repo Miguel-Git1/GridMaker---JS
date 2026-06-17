@@ -71,7 +71,7 @@ export class ColorPicker {
                 scalar++;
             }
 
-            await sleep(250);
+            await sleep(50);
 
             leftSquare.classList.toggle("active");
             rightSqure.classList.toggle("active");
