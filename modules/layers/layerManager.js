@@ -4,7 +4,15 @@ class LayerManager {
     #layerMapper = new Map();
 
     constructor() {
-        this.#layerContainer = document.getElementById("layer-container");
+        this.#createLayerWrapper();
+    }
+
+    #createLayerWrapper() {
+        this.#layerContainer = document.createElement("div");
+        this.#layerContainer.id = "layer-container";
+        this.#layerContainer.classList.toggle("layer-container");
+
+        document.body.prepend(this.#layerContainer);
     }
 
     createLayer(name) {
