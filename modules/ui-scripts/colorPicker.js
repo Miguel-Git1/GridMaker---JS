@@ -22,7 +22,7 @@ export class ColorPicker {
     #colorBlockClassName = "color-block";
 
     constructor() {
-        this.#colorContainer = document.querySelector(".stroke-color-container");
+        this.#colorContainer = document.getElementById("color-container");
     }
 
     get activeColor() {
