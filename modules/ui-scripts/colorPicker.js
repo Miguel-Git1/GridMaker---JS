@@ -64,7 +64,7 @@ export class ColorPicker {
             leftIndex = middleNumber - scalar;
             rightIndex = middleNumber + scalar;
 
-            step = (step %   2) + 1;
+            step = (step % 2) + 1;
 
             if (step == 2)
             {
