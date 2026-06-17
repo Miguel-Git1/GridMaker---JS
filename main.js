@@ -5,8 +5,6 @@ import { layerManager } from "./modules/layers/layerManager.js";
 import { HoverBrush } from "./modules/grid/hoverBrush.js";
 import { ColorPicker } from "./modules/ui-scripts/colorPicker.js";
 
-const columnSlider = document.getElementById("grid-column-slider");
-const rowSlider = document.getElementById("grid-row-slider");
 const mousePosLabel = document.getElementById("mouse-pos-label");
 
 const gridLayer = layerManager.createLayer("grid-layer");
@@ -42,8 +40,6 @@ const colorPicker = new ColorPicker(hoverLayerContext);
     requestAnimationFrame(mainGameLoop);
 
     gameState.timestamp = timestamp;
-
-    grid.changeGridDims(columnSlider.valueAsNumber, rowSlider.valueAsNumber);
     
     hoverLayerContext.reset();
     
