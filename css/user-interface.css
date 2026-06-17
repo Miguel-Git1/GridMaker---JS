@@ -1,0 +1,51 @@
+.user-interface-container {
+    display: flex;
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    width: auto;
+
+    flex-direction: column;
+
+    background-color: #FDEB9E;
+    border: solid 2px #06202B;
+    border-radius: 15px;
+
+    &.user-interface-container--horizontal {
+        flex-direction: row;
+    }
+}
+
+.user-interface-container__header {
+    padding: 10px 10px 15px 10px;
+}
+
+.user-interface-container__body {
+    display: flex;
+}
+
+.user-interface-container__section {
+    display: flex;
+    justify-content: center;
+
+    width: 250px;
+    
+    margin: 0 0 15px 0;
+
+    &:not(:last-child)
+    {
+        margin: 0 15px 15px 0;
+    }
+
+}
+
+.user-interface-container__label {
+    margin: auto;
+}
+
+.user-interface-container__section--wrapped  {
+    flex-wrap: wrap;
+    gap: 10px;
+}
