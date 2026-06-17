@@ -1,6 +1,6 @@
 class GameState { 
-    mousePosX;
-    mousePosY;
+    mousePosX = 0;
+    mousePosY = 0;
 
     innerWidth;
     innerHeight;
