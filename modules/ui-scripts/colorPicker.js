@@ -133,8 +133,7 @@ export class ColorPicker {
             let nextColorIndex;
             if (inputMapper.isKeyPressed("Shift", "Tab"))
             {
-                const calculatedColorIndex = Math.max(0, (index - 1)) % limit; 
-                nextColorIndex = calculatedColorIndex === 0 ? limit - 1 : calculatedColorIndex;
+                nextColorIndex = (index - 1 + limit) % limit;
             }
             else 
             {
