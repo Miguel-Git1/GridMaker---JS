@@ -28,7 +28,7 @@ export class ColorPicker {
     }
 
     get isOnCooldown() {
-        return gameState.timestamp - this.#currentTimeStamp < 100;
+        return gameState.timestamp - this.#currentTimeStamp < 200;
     }
 
     get allColorSquares() {
