@@ -19,6 +19,8 @@ export class ColorPicker {
         "#00F5D4"
     ];
 
+    #colorBlockClassName = "color-block";
+
     constructor() {
         this.#colorContainer = document.querySelector(".stroke-color-container");
     }
@@ -32,7 +34,7 @@ export class ColorPicker {
     }
 
     get allColorSquares() {
-        return this.#colorContainer.querySelectorAll(".color-block");
+        return this.#colorContainer.querySelectorAll(`.${this.#colorBlockClassName}`);
     }
 
     async makeAnimationSquares() {
@@ -95,7 +97,7 @@ export class ColorPicker {
 
     createColorSquare(colorCode, index) {
         const colorDiv = document.createElement("div");
-        colorDiv.classList.add("color-block");
+        colorDiv.classList.add(this.#colorBlockClassName);
         
         colorDiv.style.setProperty("--block-color", colorCode);
 
