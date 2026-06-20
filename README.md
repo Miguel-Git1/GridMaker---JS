@@ -14,7 +14,3 @@ For game state, it uses an internal class called GameState. It acts as a contain
 This project was originally meant to be a game fully made with the Canvas API. No framework in mind. However, as I developed it, I turned this project into a pixel art maker! For now, its just a place where I can improve my math skills. 
 
 Since everything is made from "scratch" using the Canvas API, all concepts I implement need to be tied with math behind it.
-
-I have been learning a lot of math with this, and the more I progress the more I enjoy both programming and math!
-
-Feel free to contribute to the playground!
