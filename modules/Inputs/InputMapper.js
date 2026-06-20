@@ -1,4 +1,6 @@
 
+import { gameState } from "../../GameState.js";
+
 // For some reason mozilla is saying not to use e.keyCode and use e.key
 class InputMapper {
 
@@ -20,9 +22,21 @@ class InputMapper {
         document.addEventListener("keyup", (e) => this.#pressedKeysMapper.delete(e.key));
     }
 
+    #setMouseTracker() {
+        document.addEventListener("mousedown", () => gameState.isMouseDown = true);
+
+        document.addEventListener("mouseup", () => gameState.isMouseDown = false);
+
+        document.addEventListener("mousemove", (e) => {
+            gameState.mousePosX = e.clientX;
+            gameState.mousePosY = e.clientY;
+        });
+    }
+
     constructor() {
         this.#setKeyDownTracker(); 
         this.#setKeyReleaseTracker();
+        this.#setMouseTracker();
     }
 
     // This is just used for debugging
